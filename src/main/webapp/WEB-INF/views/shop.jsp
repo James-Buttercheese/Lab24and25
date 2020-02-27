@@ -32,7 +32,7 @@
 						pattern="0." /></td>
 				<td class="pics"><img src="/images/${product.name}.jpg" />
 				<td>
-				<td><a href="/shop/favorite?id=${ product.id }"	class="btn btn-light btn-sm">Favorite</a></td>
+				<td><a href="/shop/favorite?id=${ product.id }"	class="btn btn-light btn-sm">Cart</a></td>
 			</tr>
 
 
@@ -49,7 +49,7 @@
 	</form>
 
 	<p>
-	<a class="btn btn-light btn-sm" href="/favorites">See favorites </a>
+	<a class="btn btn-light btn-sm" href="/favorites">Shopping List </a>
 		<a class="btn btn-light btn-sm" href="/"> Home </a>
 	</p>
 </div>

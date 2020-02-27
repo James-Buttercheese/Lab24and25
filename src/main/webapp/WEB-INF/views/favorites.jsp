@@ -60,6 +60,6 @@
 
 		</c:forEach>
 	</table>
-
+<a class="btn link" href="/shop"> Shop </a>
 </body>
 </html>

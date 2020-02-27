@@ -54,29 +54,37 @@ public class CoffeeHouseController {
 		List<Products> products = productsRepo.findAll();
 		return new ModelAndView("shop", "products", products);
 	}
-	
-	@PostMapping("/shop")
-	public ModelAndView shopAdd(@RequestParam("id") Long id) {
+
+	@RequestMapping("/shop/favorite")
+	public ModelAndView shopAdd(@RequestParam("id") Long id, @SessionAttribute(name = "products", required = false) List<Products> products) {
+
 		
-		sesh.setAttribute("product", productsRepo.findById(id).orElse(null));	
-	
+
+		if (products != (null)) {
+			products = (List<Products>) sesh.getAttribute("products");
+			sesh.removeAttribute("products");
+			products.add(productsRepo.findById(id).orElse(null));
+			sesh.setAttribute("products", products);
+		} else {
+			List<Products> pducts = new ArrayList<>();
+			pducts.add(productsRepo.findById(id).orElse(null));
+			sesh.setAttribute("products", pducts);
+			}
+
 		return new ModelAndView("redirect:/shop");
 	}
-	
+
 	@RequestMapping("/favorites")
-	public ModelAndView favorites(@SessionAttribute(name="product", required=false) Products product) {
-		
+	public ModelAndView favorites(@SessionAttribute(name = "products", required = false) List<Products> products) {
+
 		ModelAndView mav = new ModelAndView("favorites");
-		
-		Products pduct = (Products) sesh.getAttribute("product");
-		
-		if(pduct != null) {
-			mav.addObject("product", pduct);
-		} 		
-					
+
+		if (products != null) {
+			mav.addObject("products", products);
+		}
+
 		return mav;
 	}
-	
 
 	@RequestMapping("/admin")
 	public ModelAndView admin() {

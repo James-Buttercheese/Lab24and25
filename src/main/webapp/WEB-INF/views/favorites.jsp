@@ -12,6 +12,30 @@
 <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+<!-- <table> -->
+<!-- 		<tr> -->
+<!-- 			<th>Name</th> -->
+<!-- 			<th>Description</th> -->
+<!-- 			<th>Price</th> -->
+<!-- 			<th>Quantity</th> -->
+
+<!-- 		</tr> -->
+
+
+<!-- 			<tr> -->
+<%-- 				<td>${ product.name }</td> --%>
+<%-- 				<td>${ product.description }</td> --%>
+<%-- 				<td><fmt:formatNumber value="${ product.price }" pattern="0.00" /></td> --%>
+<%-- 				<td><fmt:formatNumber value="${ product.quantity }" --%>
+<%--  						pattern="0." /></td>  --%>
+<%--  				<td class="pics"><img src="/images/${product.name}.jpg" />  --%>
+<!-- 				<td> -->
+<!--  			</tr>  -->
+
+
+
+<!--  	</table>  -->
+
 <table>
 		<tr>
 			<th>Name</th>
@@ -21,21 +45,21 @@
 
 		</tr>
 
-
+		<c:forEach var="product" items="${products}">
 			<tr>
 				<td>${ product.name }</td>
 				<td>${ product.description }</td>
 				<td><fmt:formatNumber value="${ product.price }" pattern="0.00" /></td>
 				<td><fmt:formatNumber value="${ product.quantity }"
- 						pattern="0." /></td> 
- 				<td class="pics"><img src="/images/${product.name}.jpg" /> 
+						pattern="0." /></td>
+				<td class="pics"><img src="/images/${product.name}.jpg" />
 				<td>
- 			</tr> 
+				<td><a href="/shop/favorite?id=${ product.id }"	class="btn btn-light btn-sm">Favorite</a></td>
+			</tr>
 
 
-
- 	</table> 
-
+		</c:forEach>
+	</table>
 
 </body>
 </html>

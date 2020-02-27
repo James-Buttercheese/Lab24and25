@@ -13,7 +13,7 @@
 <body>
 <div class='container'>
 	<h2>Welcome to the Shop</h2>
-<form method="post">
+<form>
 	<table>
 		<tr>
 			<th>Name</th>
@@ -32,7 +32,7 @@
 						pattern="0." /></td>
 				<td class="pics"><img src="/images/${product.name}.jpg" />
 				<td>
-				<td><a href="/shop?id=${ product.id }"	class="btn btn-light btn-sm">Favorite</a></td>
+				<td><a href="/shop/favorite?id=${ product.id }"	class="btn btn-light btn-sm">Favorite</a></td>
 			</tr>
 
 
